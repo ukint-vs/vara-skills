@@ -1,0 +1,10 @@
+{
+  "name": "vara-skills-local",
+  "owner": "ukintvs",
+  "plugins": [
+    {
+      "name": "vara-skills",
+      "source": "."
+    }
+  ]
+}
