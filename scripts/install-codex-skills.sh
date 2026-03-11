@@ -8,8 +8,7 @@ TARGET_DIR="${CODEX_HOME}/skills"
 
 mkdir -p "${TARGET_DIR}"
 
-for skill_dir in "${REPO_ROOT}"/skills/*; do
-  [[ -d "${skill_dir}" ]] || continue
+find "${REPO_ROOT}/skills" -mindepth 1 -maxdepth 1 -type d | LC_ALL=C sort | while IFS= read -r skill_dir; do
   skill_name="$(basename "${skill_dir}")"
   target_path="${TARGET_DIR}/${skill_name}"
   ln -sfn "${skill_dir}" "${target_path}"
