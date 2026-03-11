@@ -8,31 +8,43 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = ROOT / "scripts" / "validate-skill.py"
 STARTER_SKILLS = {
-    "idea-to-spec": [
+    "ship-sails-app": [
         "SKILL.md",
         "assets",
         "references",
         "scripts",
     ],
-    "gear-architecture-planner": [
+    "sails-new-app": [
         "SKILL.md",
         "assets",
         "references",
         "scripts",
     ],
-    "task-decomposer": [
+    "sails-feature-workflow": [
         "SKILL.md",
         "assets",
         "references",
         "scripts",
     ],
-    "sails-rust-implementer": [
+    "sails-architecture": [
         "SKILL.md",
         "assets",
         "references",
         "scripts",
     ],
-    "gtest-tdd-loop": [
+    "sails-idl-client": [
+        "SKILL.md",
+        "assets",
+        "references",
+        "scripts",
+    ],
+    "sails-gtest": [
+        "SKILL.md",
+        "assets",
+        "references",
+        "scripts",
+    ],
+    "sails-local-smoke": [
         "SKILL.md",
         "assets",
         "references",
@@ -57,6 +69,7 @@ def validate(skill_dir: Path) -> None:
 
 def main() -> int:
     require(VALIDATOR)
+    require(ROOT / "SKILL.md")
 
     for skill_name, expected_paths in STARTER_SKILLS.items():
         skill_dir = ROOT / "skills" / skill_name
@@ -65,40 +78,33 @@ def main() -> int:
             require(skill_dir / relative)
         validate(skill_dir)
 
-    idea = (ROOT / "skills" / "idea-to-spec" / "SKILL.md").read_text(encoding="utf-8")
-    assert "../../assets/spec-template.md" in idea
-    assert "../../references/vara-domain-overview.md" in idea
-    assert "docs/plans/YYYY-MM-DD-<topic>-spec.md" in idea
+    router = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+    assert "ship-sails-app" in router
+    assert "Codex" in router and "Claude" in router and "OpenClaw" in router
+
+    new_app = (ROOT / "skills" / "sails-new-app" / "SKILL.md").read_text(encoding="utf-8")
+    assert "Sails" in new_app
+
+    feature = (
+        ROOT / "skills" / "sails-feature-workflow" / "SKILL.md"
+    ).read_text(encoding="utf-8")
+    assert "gtest" in feature.lower()
 
     architecture = (
-        ROOT / "skills" / "gear-architecture-planner" / "SKILL.md"
+        ROOT / "skills" / "sails-architecture" / "SKILL.md"
     ).read_text(encoding="utf-8")
     assert "sails-program-architecture-patterns" in architecture
-    assert "gear-messaging-model" in architecture
-    assert "sails-idl-and-client-pipeline" in architecture
-    assert "../../assets/architecture-template.md" in architecture
 
-    task_decomposer = (
-        ROOT / "skills" / "task-decomposer" / "SKILL.md"
+    idl_client = (
+        ROOT / "skills" / "sails-idl-client" / "SKILL.md"
     ).read_text(encoding="utf-8")
-    assert "../../assets/task-plan-template.md" in task_decomposer
-    assert "spec" in task_decomposer and "architecture" in task_decomposer
+    assert "sails-idl-and-client-pipeline" in idl_client
 
-    implementer = (
-        ROOT / "skills" / "sails-rust-implementer" / "SKILL.md"
-    ).read_text(encoding="utf-8")
-    assert "sails-idiomatic-dev" in implementer
-    assert "gear-messaging-model" in implementer
-    assert "gear-gas-and-value-accounting" in implementer
-
-    gtest_loop = (
-        ROOT / "skills" / "gtest-tdd-loop" / "SKILL.md"
-    ).read_text(encoding="utf-8")
+    gtest_loop = (ROOT / "skills" / "sails-gtest" / "SKILL.md").read_text(encoding="utf-8")
     assert "gtest-core-workflows" in gtest_loop
-    assert "gear-test-sails-program" in gtest_loop
-    assert "../../assets/gtest-report-template.md" in gtest_loop
-    assert "../../scripts/run_gtest.sh" in gtest_loop
-    assert "../../scripts/parse_test_output.py" in gtest_loop
+
+    smoke = (ROOT / "skills" / "sails-local-smoke" / "SKILL.md").read_text(encoding="utf-8")
+    assert "gear-run-local-node" in smoke or "sails-live-node-smoke" in smoke
 
     print("starter skills ok")
     return 0
