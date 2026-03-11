@@ -11,11 +11,12 @@ Move a greenfield request from scope to an approved Sails workspace path without
 
 ## Sequence
 
-1. Write the feature or app goal to `docs/plans/YYYY-MM-DD-<topic>-spec.md` using `../../assets/spec-template.md`.
-2. Route architecture decisions through `../sails-architecture/SKILL.md`.
-3. When the builder is ready to scaffold, delegate to `sails-new-program`.
-4. After scaffold or first implementation, send IDL and client work to `../sails-idl-client/SKILL.md`.
-5. Finish with `../sails-gtest/SKILL.md`, then `../sails-local-smoke/SKILL.md`.
+1. Create the Sails workspace first.
+2. Write the feature or app goal to `docs/plans/YYYY-MM-DD-<topic>-spec.md` using `../../assets/spec-template.md`.
+3. Route architecture decisions through `../sails-architecture/SKILL.md`.
+4. When the builder is ready to scaffold, delegate to `sails-new-program`.
+5. Expect generated app or client wiring, then send IDL and client work to `../sails-idl-client/SKILL.md`.
+6. Validate before moving to later phases by finishing with `../sails-gtest/SKILL.md`, then `../sails-local-smoke/SKILL.md`.
 
 ## Shared Inputs
 

@@ -37,6 +37,11 @@ Use shared templates from:
 - `../../references/sails-cheatsheet.md`
 - `../../references/gtest-cheatsheet.md`
 
+## Routing Reminder
+
+- Route to the new-app path when the builder is starting from scratch.
+- Mention later architecture, `gtest`, and local-node validation so the builder sees the full Sails path instead of just the first step.
+
 ## Guardrails
 
 - Treat this as a candidate first-wave catalog, not a frozen public taxonomy.

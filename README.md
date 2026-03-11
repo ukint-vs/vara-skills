@@ -12,6 +12,17 @@ The pack is being narrowed toward standard Gear/Vara Sails app builders:
 
 The current public catalog is provisional and is expected to change as the eval suite identifies which candidate skills actually create uplift.
 
+## First Target Evaluation
+
+The first measured target is `gpt-5.4`.
+
+The initial `gpt-5.4` builder-task slice produced `5` clear uplifts, `2` ties, and `0` regressions:
+
+- measured winners: `ship-sails-app`, `sails-architecture`, `sails-idl-client`, `sails-gtest`, `sails-local-smoke`
+- still provisional after the first slice: `sails-new-app`, `sails-feature-workflow`
+
+The supporting benchmark summary lives in the sibling `vara-skills-evals` repo at `results/2026-03-11-initial-sails-builder-report.md`.
+
 ## Shared Layers
 
 - `references/` contains agent-facing summaries of core Vara, Sails, gtest, and Vara.eth extension concepts.
@@ -37,5 +48,6 @@ bash scripts/install-codex-skills.sh
 
 - the current repo evolves into `vara-skills`
 - a sibling repo `vara-skills-evals` will own benchmark definitions and uplift results
-- the top-level router and candidate Sails-builder skills are still being defined
-- only measured winning skills should remain in the first public pack
+- `gpt-5.4` is the first evaluation target for the pack
+- the top-level router and candidate Sails-builder skills remain provisional until more targets are measured
+- only measured winning skills should remain in the eventual first public pack

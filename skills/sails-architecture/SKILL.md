@@ -24,8 +24,10 @@ Write the result to `docs/plans/YYYY-MM-DD-<topic>-architecture.md`.
 
 ## Review Checklist
 
+- Choose explicit service boundaries.
+- Explain state ownership.
+- Consider routing and events.
 - Are `#[program]` and `#[service]` boundaries explicit?
-- Is state ownership clear and minimal?
 - Are routes, replies, and events stable enough for generated clients?
 - Does the design account for async Gear message flow and failure paths?
 

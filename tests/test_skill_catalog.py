@@ -106,6 +106,12 @@ def main() -> int:
     smoke = (ROOT / "skills" / "sails-local-smoke" / "SKILL.md").read_text(encoding="utf-8")
     assert "gear-run-local-node" in smoke or "sails-live-node-smoke" in smoke
 
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert "gpt-5.4" in readme, "README.md should name the first evaluation target"
+    assert "ship-sails-app" in readme and "sails-local-smoke" in readme
+    assert "sails-new-app" in readme and "sails-feature-workflow" in readme
+    assert "provisional" in readme.lower(), "README.md should keep the catalog provisional"
+
     print("starter skills ok")
     return 0
 

@@ -19,10 +19,10 @@ Validate the generated client path against a local node after `gtest` is already
 ## Sequence
 
 1. Confirm the `docs/plans/...-gtest.md` note shows a green test loop.
-2. Start or reuse a local Gear/Vara node with `gear-run-local-node`.
+2. Connect to a local node by starting or reusing one with `gear-run-local-node`.
 3. Deploy the tested Wasm with `gear-deploy-program`.
-4. Exercise the generated client path with `sails-live-node-smoke`.
-5. Query resulting state only when that helps close the smoke checklist.
+4. Use the typed generated-client path with `sails-live-node-smoke`.
+5. Exercise a command or query path that proves the typed integration works.
 
 ## References
 

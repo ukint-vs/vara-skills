@@ -20,8 +20,9 @@ Keep Sails builders on the typed pipeline for IDL generation, Rust client genera
 
 ## Route Here When
 
-- `build.rs` no longer generates the expected artifacts
+- Check `build.rs` or generation wiring when it no longer generates the expected artifacts
 - the client crate drifted from program changes
+- Check output paths and artifact freshness before deeper debugging
 - tests are building raw payloads instead of using generated clients
 - local smoke needs a typed client path
 

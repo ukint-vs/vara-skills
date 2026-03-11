@@ -11,12 +11,12 @@ Keep feature work inside an existing Sails repo on an explicit sequence instead 
 
 ## Required Sequence
 
-1. Spec: draft `docs/plans/YYYY-MM-DD-<topic>-spec.md` with `idea-to-spec` and `../../assets/spec-template.md`.
-2. Architecture: draft `...-architecture.md` with `../sails-architecture/SKILL.md` and `../../assets/architecture-template.md`.
-3. Tasks: draft `...-tasks.md` with `task-decomposer` and `../../assets/task-plan-template.md`.
-4. Implementation: route Rust changes through `sails-rust-implementer`.
-5. Verification: route the test loop through `../sails-gtest/SKILL.md`.
-6. Smoke: only after green `gtest`, route to `../sails-local-smoke/SKILL.md`.
+1. Clarify the feature in `docs/plans/YYYY-MM-DD-<topic>-spec.md` with `idea-to-spec` and `../../assets/spec-template.md`.
+2. Plan architecture or public interface in `...-architecture.md` with `../sails-architecture/SKILL.md` and `../../assets/architecture-template.md`.
+3. Break the work into tasks in `...-tasks.md` with `task-decomposer` and `../../assets/task-plan-template.md`.
+4. Implement the Rust changes through `sails-rust-implementer`.
+5. Run `gtest` through `../sails-gtest/SKILL.md`.
+6. Run smoke validation only after green `gtest`, using `../sails-local-smoke/SKILL.md`.
 
 ## References
 
