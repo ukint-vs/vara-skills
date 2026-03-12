@@ -1,4 +1,4 @@
-.PHONY: test-layout test-skills test-parser test-install verify
+.PHONY: test-layout test-skills test-parser test-install test-packaging verify
 
 test-layout:
 	python3 tests/test_repo_layout.py
@@ -13,4 +13,7 @@ test-parser:
 test-install:
 	python3 tests/test_install_codex_skills.py
 
-verify: test-layout test-skills test-parser test-install
+test-packaging:
+	python3 tests/test_packaging_metadata.py
+
+verify: test-layout test-skills test-parser test-install test-packaging

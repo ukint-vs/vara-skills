@@ -34,9 +34,37 @@ bash scripts/install-codex-skills.sh
 
 Then start a new Codex session and load the top-level `SKILL.md` when you want the pack router.
 
-### Claude
+### Claude Code Plugin
 
-This repo ships Claude plugin metadata in `.claude-plugin/`. Use that install surface if you want Claude to consume the same pack content instead of a separate fork.
+Claude Code can install this repo directly as a plugin. You do not need a separate Claude-specific fork.
+
+Recommended install from GitHub:
+
+```bash
+/plugin marketplace add https://github.com/ukint-vs/vara-skills
+/plugin install vara-skills@vara-skills
+```
+
+If you are developing the plugin from a local checkout, run these commands from the repo root instead:
+
+```bash
+/plugin marketplace add .
+/plugin install vara-skills@vara-skills
+```
+
+After local edits, reload the plugin without restarting Claude Code:
+
+```bash
+/reload-plugins
+```
+
+What Claude Code installs:
+
+- the skill directories under `skills/`
+- the same shared `references/` and `assets/` content those skills point at
+- the provisional standard Gear/Vara Sails builder workflow centered on `ship-sails-app`
+
+Important difference from Codex and OpenClaw: the repo-root `SKILL.md` is the portable pack router, but Claude Code loads plugin skills from `skills/`. In Claude Code, `ship-sails-app` is the broad entry skill that should trigger first for standard builder tasks.
 
 ### OpenClaw
 
@@ -97,6 +125,7 @@ make verify
 ```
 
 This runs repository layout, skill-validator, skill-catalog, parser, and install tests for the current product repo surface.
+It also validates the Claude packaging metadata in `.claude-plugin/`.
 
 ## Current Direction
 
