@@ -1,8 +1,16 @@
-# gear-agent-skills
+# vara-skills
 
-Provisional product repository for a `vara-skills` Sails-builder pack.
+`vara-skills` is a portable, self-contained skill pack for standard Gear/Vara Sails builders.
 
-The current repo is the source-of-truth workspace for a portable, self-contained, markdown-first skill pack targeting Codex, Claude, and OpenClaw. The public website comes later, after the first measured skill set is finalized.
+It is designed to help coding agents start from the right builder workflow, then pull the narrow Gear and Sails knowledge they need without depending on sibling repos or machine-local notes. The current public catalog is provisional and is expected to change as the eval suite identifies which candidate skills actually create uplift.
+
+## How It Works
+
+Each skill is a markdown file.
+
+- `SKILL.md` is the top-level router for the pack.
+- `skills/<name>/SKILL.md` is a narrower workflow or topic skill.
+- `references/` is the self-contained handbook for Gear execution, Sails architecture, IDL/client generation, `gtest`, and local validation.
 
 The pack is being narrowed toward standard Gear/Vara Sails app builders:
 
@@ -11,9 +19,29 @@ The pack is being narrowed toward standard Gear/Vara Sails app builders:
 - reasoning about Gear message flow and execution behavior
 - getting architecture, IDL/client wiring, `gtest`, and local-node validation right
 
-The current public catalog is provisional and is expected to change as the eval suite identifies which candidate skills actually create uplift.
+## Installation
 
-## Current Candidate Skills
+### Codex
+
+Clone the repo and install the local skills:
+
+```bash
+git clone git@github.com:ukint-vs/vara-skills.git
+cd vara-skills
+bash scripts/install-codex-skills.sh
+```
+
+Then start a new Codex session and load the top-level `SKILL.md` when you want the pack router.
+
+### Claude
+
+This repo ships Claude plugin metadata in `.claude-plugin/`. Use that install surface if you want Claude to consume the same pack content instead of a separate fork.
+
+### OpenClaw
+
+Use `openclaw-skill/SKILL.md` as the wrapper entrypoint for the same pack.
+
+## Current Skill Pack
 
 - `ship-sails-app`
 - `sails-new-app`
@@ -24,16 +52,14 @@ The current public catalog is provisional and is expected to change as the eval 
 - `sails-gtest`
 - `sails-local-smoke`
 
-## Self-Contained Handbook
+## Repo Structure
 
-The pack is intended to self-describe the standard Gear/Vara Sails builder path from this repo alone. The shared handbook in `references/` covers:
-
-- Gear execution model
-- Gear messaging, replies, timeouts, and delayed work
-- gas reservations and Waitlist constraints
-- Sails program and service architecture
-- IDL and generated client pipelines
-- `gtest` and typed local-node validation
+- `SKILL.md` contains the top-level router.
+- `skills/` contains installable skill directories.
+- `references/` contains the self-contained handbook.
+- `assets/` contains canonical output shapes for spec, architecture, task-plan, and gtest artifacts.
+- `scripts/` contains install, validation, gtest execution, and parser helpers.
+- `docs/plans/` captures approved design and implementation artifacts for the pack.
 
 ## Milestone-One Evaluation
 
@@ -63,13 +89,6 @@ Still tied or unresolved in the current pack:
 
 The supporting benchmark summary lives in the sibling `vara-skills-evals` repo at `results/2026-03-11-gpt54-suite-report.md`.
 
-## Shared Layers
-
-- `references/` contains the self-contained agent-facing handbook for Gear execution, Sails workflows, and supporting Vara notes.
-- `assets/` contains canonical output shapes for spec, architecture, task-plan, and gtest artifacts.
-- `scripts/` contains deterministic helper commands for install, validation, gtest execution, and parser output.
-- `docs/plans/` captures approved design and implementation artifacts for the pack.
-
 ## Verification
 
 ```bash
@@ -78,16 +97,10 @@ make verify
 
 This runs repository layout, skill-validator, skill-catalog, parser, and install tests for the current product repo surface.
 
-## Installation
-
-```bash
-bash scripts/install-codex-skills.sh
-```
-
 ## Current Direction
 
-- the current repo evolves into `vara-skills`
-- a sibling repo `vara-skills-evals` will own benchmark definitions and uplift results
-- `gpt-5.4` is the first evaluation target for the pack
+- `vara-skills` is the product repo for the pack
+- a sibling `vara-skills-evals` repo owns benchmark definitions and uplift results
+- `gpt-5.4` is the first evaluation target
 - the top-level router and candidate Sails-builder skills remain provisional until more targets are measured
 - only measured winning skills should remain in the eventual first public pack
