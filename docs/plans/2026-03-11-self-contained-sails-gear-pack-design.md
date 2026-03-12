@@ -26,7 +26,7 @@ Add compact local references for:
 - Sails IDL and client generation pipeline
 - Sails `gtest` and local-node validation
 
-These references should absorb the useful material currently spread across `../gear-skills` and `~/.codex/skills`.
+These references should absorb the useful material currently spread across `<gear-skills-root>` and `$CODEX_HOME/skills`.
 
 ### Public Skill Surface
 Keep the existing builder workflow skills:
@@ -49,7 +49,7 @@ Add `gear-message-execution` if the current catalog still lacks a clear routing 
 - `sails-gtest` and `sails-local-smoke` absorb local `gtest`, generated-client, and typed smoke guidance instead of delegating outward.
 
 ## Portability Rules
-- No published skill may require `../gear-skills`, `~/.codex/skills`, or another machine-specific source path.
+- No published skill may require `<gear-skills-root>`, `$CODEX_HOME/skills`, or another machine-specific source path.
 - Skills may reference local repo paths only.
 - Shared references carry the durable knowledge; skills should stay compact and route builders into those references at the right point.
 

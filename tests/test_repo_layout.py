@@ -5,10 +5,27 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
+LOCAL_PATTERNS = (
+    "/" + "Users/",
+    "~/" + ".codex/skills",
+    ".." + "/gear-skills",
+    "Documents" + "/projects/",
+)
 
 
 def require(path: Path) -> None:
     assert path.exists(), f"missing expected path: {path.relative_to(ROOT)}"
+
+
+def sanitized_files() -> list[Path]:
+    return [
+        ROOT / "README.md",
+        ROOT / "SKILL.md",
+        ROOT / "openclaw-skill" / "README.md",
+        ROOT / "openclaw-skill" / "SKILL.md",
+        ROOT / "tests" / "fixtures" / "gtest-workspace-error.log",
+        *sorted((ROOT / "docs" / "plans").glob("*.md")),
+    ]
 
 
 def main() -> int:
@@ -50,6 +67,13 @@ def main() -> int:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     assert "Sails" in readme, "README.md should describe the Sails-builder focus"
     assert "provisional" in readme.lower(), "README.md should describe the public pack as provisional"
+
+    for path in sanitized_files():
+        text = path.read_text(encoding="utf-8")
+        for pattern in LOCAL_PATTERNS:
+            assert pattern not in text, (
+                f"{path.relative_to(ROOT)} should not contain machine-specific path pattern: {pattern}"
+            )
     print("repo layout ok")
     return 0
 

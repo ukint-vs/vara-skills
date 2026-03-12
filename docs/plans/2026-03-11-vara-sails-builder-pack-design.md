@@ -172,7 +172,7 @@ The first release is successful if:
 
 ## Assumptions
 
-- The current `/Users/ukintvs/Documents/projects/gear-agent-skills` repo evolves into the `vara-skills` product repo, even if the directory name changes later.
+- The current `<repo-root>` repo evolves into the `vara-skills` product repo, even if the directory name changes later.
 - A sibling repo will be created for `vara-skills-evals`.
 - Standard Gear/Vara Sails remains the only first-class builder path in v1.
 - Website delivery is deferred until the first skill set is finalized and benchmarked.

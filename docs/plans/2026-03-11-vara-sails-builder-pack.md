@@ -13,12 +13,12 @@
 ### Task 1: Reframe the current repo as the product repo
 
 **Files:**
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/README.md`
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/AGENTS.md`
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_repo_layout.py`
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_skill_catalog.py`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/docs/plans/2026-03-11-vara-sails-builder-pack-design.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/docs/plans/2026-03-11-vara-sails-builder-pack.md`
+- Modify: `<repo-root>/README.md`
+- Modify: `<repo-root>/AGENTS.md`
+- Modify: `<repo-root>/tests/test_repo_layout.py`
+- Modify: `<repo-root>/tests/test_skill_catalog.py`
+- Create: `<repo-root>/docs/plans/2026-03-11-vara-sails-builder-pack-design.md`
+- Create: `<repo-root>/docs/plans/2026-03-11-vara-sails-builder-pack.md`
 
 **Step 1: Write the failing repo assertions**
 
@@ -34,8 +34,8 @@ Extend `tests/test_repo_layout.py` and `tests/test_skill_catalog.py` so they fai
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_repo_layout.py
-python3 /Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_skill_catalog.py
+python3 <repo-root>/tests/test_repo_layout.py
+python3 <repo-root>/tests/test_skill_catalog.py
 ```
 
 Expected:
@@ -51,7 +51,7 @@ Update `README.md` and `AGENTS.md` to describe the repo as a provisional `vara-s
 Run:
 
 ```bash
-make -C /Users/ukintvs/Documents/projects/gear-agent-skills test-layout
+make -C <repo-root> test-layout
 ```
 
 Expected:
@@ -61,20 +61,20 @@ Expected:
 **Step 5: Commit**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills add README.md AGENTS.md tests/test_repo_layout.py tests/test_skill_catalog.py docs/plans/2026-03-11-vara-sails-builder-pack-design.md docs/plans/2026-03-11-vara-sails-builder-pack.md
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills commit -m "docs: reframe repo as vara-skills product repo"
+git -C <repo-root> add README.md AGENTS.md tests/test_repo_layout.py tests/test_skill_catalog.py docs/plans/2026-03-11-vara-sails-builder-pack-design.md docs/plans/2026-03-11-vara-sails-builder-pack.md
+git -C <repo-root> commit -m "docs: reframe repo as vara-skills product repo"
 ```
 
 ### Task 2: Bootstrap the eval repo
 
 **Files:**
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/README.md`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/PLAN.md`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/runner/run.sh`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/runner/judge.md`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/results/.gitkeep`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_repo_layout.py`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_runner_smoke.py`
+- Create: `<vara-skills-evals-root>/README.md`
+- Create: `<vara-skills-evals-root>/PLAN.md`
+- Create: `<vara-skills-evals-root>/runner/run.sh`
+- Create: `<vara-skills-evals-root>/runner/judge.md`
+- Create: `<vara-skills-evals-root>/results/.gitkeep`
+- Create: `<vara-skills-evals-root>/tests/test_repo_layout.py`
+- Create: `<vara-skills-evals-root>/tests/test_runner_smoke.py`
 
 **Step 1: Write the failing eval-repo tests**
 
@@ -85,8 +85,8 @@ Add a layout test for the repo skeleton and a smoke test for `runner/run.sh --he
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_repo_layout.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_runner_smoke.py
+python3 <vara-skills-evals-root>/tests/test_repo_layout.py
+python3 <vara-skills-evals-root>/tests/test_runner_smoke.py
 ```
 
 Expected:
@@ -102,8 +102,8 @@ Add the README, plan, runner scaffold, judge prompt, results directory, and test
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_repo_layout.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_runner_smoke.py
+python3 <vara-skills-evals-root>/tests/test_repo_layout.py
+python3 <vara-skills-evals-root>/tests/test_runner_smoke.py
 ```
 
 Expected:
@@ -113,21 +113,21 @@ Expected:
 **Step 5: Commit**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals add .
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals commit -m "chore: bootstrap vara-skills-evals"
+git -C <vara-skills-evals-root> add .
+git -C <vara-skills-evals-root> commit -m "chore: bootstrap vara-skills-evals"
 ```
 
 ### Task 3: Define the first benchmark sets
 
 **Files:**
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/ship-sails-app.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/sails-new-app.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/sails-feature-workflow.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/sails-architecture.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/sails-idl-client.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/sails-gtest.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/sails-local-smoke.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_eval_catalog.py`
+- Create: `<vara-skills-evals-root>/evals/ship-sails-app.yaml`
+- Create: `<vara-skills-evals-root>/evals/sails-new-app.yaml`
+- Create: `<vara-skills-evals-root>/evals/sails-feature-workflow.yaml`
+- Create: `<vara-skills-evals-root>/evals/sails-architecture.yaml`
+- Create: `<vara-skills-evals-root>/evals/sails-idl-client.yaml`
+- Create: `<vara-skills-evals-root>/evals/sails-gtest.yaml`
+- Create: `<vara-skills-evals-root>/evals/sails-local-smoke.yaml`
+- Create: `<vara-skills-evals-root>/tests/test_eval_catalog.py`
 
 **Step 1: Write the failing eval-catalog test**
 
@@ -143,7 +143,7 @@ Require every candidate skill to have:
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_eval_catalog.py
+python3 <vara-skills-evals-root>/tests/test_eval_catalog.py
 ```
 
 Expected:
@@ -154,9 +154,9 @@ Expected:
 
 Base prompts on real Sails-builder tasks, using the current local repos as ground truth:
 
-- `/Users/ukintvs/Documents/projects/sails`
-- `/Users/ukintvs/Documents/projects/gear`
-- `/Users/ukintvs/Documents/projects/vara-wiki`
+- `<sails-root>`
+- `<gear-root>`
+- `<vara-wiki-root>`
 
 Keep the suite mixed, but builder-task-heavy.
 
@@ -165,7 +165,7 @@ Keep the suite mixed, but builder-task-heavy.
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_eval_catalog.py
+python3 <vara-skills-evals-root>/tests/test_eval_catalog.py
 ```
 
 Expected:
@@ -175,23 +175,23 @@ Expected:
 **Step 5: Commit**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals add evals tests/test_eval_catalog.py
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals commit -m "test: add first Sails builder eval definitions"
+git -C <vara-skills-evals-root> add evals tests/test_eval_catalog.py
+git -C <vara-skills-evals-root> commit -m "test: add first Sails builder eval definitions"
 ```
 
 ### Task 4: Replace the public skill catalog with a provisional Sails-builder pack
 
 **Files:**
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/SKILL.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/skills/ship-sails-app/SKILL.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/skills/sails-new-app/SKILL.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/skills/sails-feature-workflow/SKILL.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/skills/sails-architecture/SKILL.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/skills/sails-idl-client/SKILL.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/skills/sails-gtest/SKILL.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/skills/sails-local-smoke/SKILL.md`
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/scripts/install-codex-skills.sh`
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_skill_catalog.py`
+- Create: `<repo-root>/SKILL.md`
+- Create: `<repo-root>/skills/ship-sails-app/SKILL.md`
+- Create: `<repo-root>/skills/sails-new-app/SKILL.md`
+- Create: `<repo-root>/skills/sails-feature-workflow/SKILL.md`
+- Create: `<repo-root>/skills/sails-architecture/SKILL.md`
+- Create: `<repo-root>/skills/sails-idl-client/SKILL.md`
+- Create: `<repo-root>/skills/sails-gtest/SKILL.md`
+- Create: `<repo-root>/skills/sails-local-smoke/SKILL.md`
+- Modify: `<repo-root>/scripts/install-codex-skills.sh`
+- Modify: `<repo-root>/tests/test_skill_catalog.py`
 
 **Step 1: Write the failing catalog assertions**
 
@@ -202,7 +202,7 @@ Make the catalog test fail until the new public router and candidate skills exis
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_skill_catalog.py
+python3 <repo-root>/tests/test_skill_catalog.py
 ```
 
 Expected:
@@ -225,8 +225,8 @@ Do not yet optimize for completeness; optimize for clear routing and testability
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_skill_validation.py
-python3 /Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_skill_catalog.py
+python3 <repo-root>/tests/test_skill_validation.py
+python3 <repo-root>/tests/test_skill_catalog.py
 ```
 
 Expected:
@@ -236,18 +236,18 @@ Expected:
 **Step 5: Commit**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills add SKILL.md skills scripts/install-codex-skills.sh tests/test_skill_catalog.py
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills commit -m "feat: add provisional Sails builder skill pack"
+git -C <repo-root> add SKILL.md skills scripts/install-codex-skills.sh tests/test_skill_catalog.py
+git -C <repo-root> commit -m "feat: add provisional Sails builder skill pack"
 ```
 
 ### Task 5: Add Claude and OpenClaw packaging
 
 **Files:**
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/.claude-plugin/plugin.json`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/.claude-plugin/marketplace.json`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/openclaw-skill/SKILL.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/openclaw-skill/README.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_packaging_metadata.py`
+- Create: `<repo-root>/.claude-plugin/plugin.json`
+- Create: `<repo-root>/.claude-plugin/marketplace.json`
+- Create: `<repo-root>/openclaw-skill/SKILL.md`
+- Create: `<repo-root>/openclaw-skill/README.md`
+- Create: `<repo-root>/tests/test_packaging_metadata.py`
 
 **Step 1: Write the failing packaging test**
 
@@ -258,7 +258,7 @@ Require valid Claude plugin metadata and an OpenClaw wrapper that points users a
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_packaging_metadata.py
+python3 <repo-root>/tests/test_packaging_metadata.py
 ```
 
 Expected:
@@ -274,8 +274,8 @@ Use the `ethskills` structure as the reference shape, but point it at the Sails-
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_packaging_metadata.py
-make -C /Users/ukintvs/Documents/projects/gear-agent-skills verify
+python3 <repo-root>/tests/test_packaging_metadata.py
+make -C <repo-root> verify
 ```
 
 Expected:
@@ -286,17 +286,17 @@ Expected:
 **Step 5: Commit**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills add .claude-plugin openclaw-skill tests/test_packaging_metadata.py
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills commit -m "feat: add Claude and OpenClaw packaging"
+git -C <repo-root> add .claude-plugin openclaw-skill tests/test_packaging_metadata.py
+git -C <repo-root> commit -m "feat: add Claude and OpenClaw packaging"
 ```
 
 ### Task 6: Run the first A/B benchmark and cut the pack to measured winners
 
 **Files:**
-- Modify: `/Users/ukintvs/Documents/projects/vara-skills-evals/runner/run.sh`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/results/YYYY-MM-DD-initial-sails-builder-report.md`
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/README.md`
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_skill_catalog.py`
+- Modify: `<vara-skills-evals-root>/runner/run.sh`
+- Create: `<vara-skills-evals-root>/results/YYYY-MM-DD-initial-sails-builder-report.md`
+- Modify: `<repo-root>/README.md`
+- Modify: `<repo-root>/tests/test_skill_catalog.py`
 
 **Step 1: Add the smallest working A/B path**
 
@@ -312,7 +312,7 @@ Make `runner/run.sh` able to:
 Run:
 
 ```bash
-bash /Users/ukintvs/Documents/projects/vara-skills-evals/runner/run.sh --help
+bash <vara-skills-evals-root>/runner/run.sh --help
 ```
 
 Expected:
@@ -332,9 +332,9 @@ Update `README.md` and `tests/test_skill_catalog.py` so the public catalog match
 Run:
 
 ```bash
-make -C /Users/ukintvs/Documents/projects/gear-agent-skills verify
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_repo_layout.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_eval_catalog.py
+make -C <repo-root> verify
+python3 <vara-skills-evals-root>/tests/test_repo_layout.py
+python3 <vara-skills-evals-root>/tests/test_eval_catalog.py
 ```
 
 Expected:
@@ -344,16 +344,16 @@ Expected:
 Commit:
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals add runner results tests
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals commit -m "results: first Sails builder uplift benchmark"
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills add README.md tests/test_skill_catalog.py
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills commit -m "docs: freeze first measured Sails skill catalog"
+git -C <vara-skills-evals-root> add runner results tests
+git -C <vara-skills-evals-root> commit -m "results: first Sails builder uplift benchmark"
+git -C <repo-root> add README.md tests/test_skill_catalog.py
+git -C <repo-root> commit -m "docs: freeze first measured Sails skill catalog"
 ```
 
 ## Assumptions
 
-- `/Users/ukintvs/Documents/projects/gear-agent-skills` is the product repo even if it is later renamed to `vara-skills`.
-- `/Users/ukintvs/Documents/projects/vara-skills-evals` will be created as a sibling repo for measurement.
+- `<repo-root>` is the product repo even if it is later renamed to `vara-skills`.
+- `<vara-skills-evals-root>` will be created as a sibling repo for measurement.
 - The first public pack is allowed to start as a candidate catalog and shrink based on benchmark evidence.
 - Standard Gear/Vara Sails is the only first-class builder path in v1.
 - Website publication is explicitly deferred until after the benchmark-driven first pack is finalized.

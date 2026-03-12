@@ -13,10 +13,10 @@
 ### Task 1: Lock the redesign in repo documentation and failing tests
 
 **Files:**
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/docs/plans/2026-03-11-vara-skills-evals-redesign-design.md`
-- Create: `/Users/ukintvs/Documents/projects/gear-agent-skills/docs/plans/2026-03-11-vara-skills-evals-redesign.md`
-- Modify: `/Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_repo_layout.py`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_suite_catalog.py`
+- Create: `<repo-root>/docs/plans/2026-03-11-vara-skills-evals-redesign-design.md`
+- Create: `<repo-root>/docs/plans/2026-03-11-vara-skills-evals-redesign.md`
+- Modify: `<vara-skills-evals-root>/tests/test_repo_layout.py`
+- Create: `<vara-skills-evals-root>/tests/test_suite_catalog.py`
 
 **Step 1: Add the failing suite-layout test**
 
@@ -40,8 +40,8 @@ Require the first 12 eval files to exist at their new suite paths.
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_repo_layout.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_suite_catalog.py
+python3 <vara-skills-evals-root>/tests/test_repo_layout.py
+python3 <vara-skills-evals-root>/tests/test_suite_catalog.py
 ```
 
 Expected:
@@ -51,26 +51,26 @@ Expected:
 **Step 4: Commit the planning docs and failing tests**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals add tests/test_repo_layout.py tests/test_suite_catalog.py
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills add docs/plans/2026-03-11-vara-skills-evals-redesign-design.md docs/plans/2026-03-11-vara-skills-evals-redesign.md
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals commit -m "test: add suite-based eval repo expectations"
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills commit -m "docs: add evals redesign design and plan"
+git -C <vara-skills-evals-root> add tests/test_repo_layout.py tests/test_suite_catalog.py
+git -C <repo-root> add docs/plans/2026-03-11-vara-skills-evals-redesign-design.md docs/plans/2026-03-11-vara-skills-evals-redesign.md
+git -C <vara-skills-evals-root> commit -m "test: add suite-based eval repo expectations"
+git -C <repo-root> commit -m "docs: add evals redesign design and plan"
 ```
 
 ### Task 2: Create the suite layout and grader contracts
 
 **Files:**
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/knowledge/.gitkeep`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/design/.gitkeep`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/codegen/.gitkeep`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/workflow/.gitkeep`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/safety/.gitkeep`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/fixtures/sails-rust/.gitkeep`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/fixtures/js-client/.gitkeep`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/judges/assert.md`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/judges/rubric.md`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/judges/artifact.md`
-- Modify: `/Users/ukintvs/Documents/projects/vara-skills-evals/README.md`
+- Create: `<vara-skills-evals-root>/evals/knowledge/.gitkeep`
+- Create: `<vara-skills-evals-root>/evals/design/.gitkeep`
+- Create: `<vara-skills-evals-root>/evals/codegen/.gitkeep`
+- Create: `<vara-skills-evals-root>/evals/workflow/.gitkeep`
+- Create: `<vara-skills-evals-root>/evals/safety/.gitkeep`
+- Create: `<vara-skills-evals-root>/fixtures/sails-rust/.gitkeep`
+- Create: `<vara-skills-evals-root>/fixtures/js-client/.gitkeep`
+- Create: `<vara-skills-evals-root>/judges/assert.md`
+- Create: `<vara-skills-evals-root>/judges/rubric.md`
+- Create: `<vara-skills-evals-root>/judges/artifact.md`
+- Modify: `<vara-skills-evals-root>/README.md`
 
 **Step 1: Create the suite directories**
 
@@ -89,8 +89,8 @@ Describe the new taxonomy, the first 12 evals, and the fact that `gpt-5.4` is th
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_repo_layout.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_suite_catalog.py
+python3 <vara-skills-evals-root>/tests/test_repo_layout.py
+python3 <vara-skills-evals-root>/tests/test_suite_catalog.py
 ```
 
 Expected:
@@ -101,26 +101,26 @@ Expected:
 **Step 5: Commit**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals add README.md evals fixtures judges
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals commit -m "docs: add suite-based eval taxonomy"
+git -C <vara-skills-evals-root> add README.md evals fixtures judges
+git -C <vara-skills-evals-root> commit -m "docs: add suite-based eval taxonomy"
 ```
 
 ### Task 3: Replace the current YAML schema with case-oriented eval files
 
 **Files:**
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/knowledge/sails-default-path.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/knowledge/idl-client-path.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/knowledge/delayed-messages.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/knowledge/gas-reservation.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/knowledge/waitlist-rent.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/knowledge/voucher-signless.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/knowledge/address-format-ss58.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/codegen/rust-sails-compile.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/codegen/js-client-from-idl.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/workflow/sails-feature-flow.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/safety/no-low-level-bypass.yaml`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/evals/safety/no-key-address-hallucination.yaml`
-- Modify: `/Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_suite_catalog.py`
+- Create: `<vara-skills-evals-root>/evals/knowledge/sails-default-path.yaml`
+- Create: `<vara-skills-evals-root>/evals/knowledge/idl-client-path.yaml`
+- Create: `<vara-skills-evals-root>/evals/knowledge/delayed-messages.yaml`
+- Create: `<vara-skills-evals-root>/evals/knowledge/gas-reservation.yaml`
+- Create: `<vara-skills-evals-root>/evals/knowledge/waitlist-rent.yaml`
+- Create: `<vara-skills-evals-root>/evals/knowledge/voucher-signless.yaml`
+- Create: `<vara-skills-evals-root>/evals/knowledge/address-format-ss58.yaml`
+- Create: `<vara-skills-evals-root>/evals/codegen/rust-sails-compile.yaml`
+- Create: `<vara-skills-evals-root>/evals/codegen/js-client-from-idl.yaml`
+- Create: `<vara-skills-evals-root>/evals/workflow/sails-feature-flow.yaml`
+- Create: `<vara-skills-evals-root>/evals/safety/no-low-level-bypass.yaml`
+- Create: `<vara-skills-evals-root>/evals/safety/no-key-address-hallucination.yaml`
+- Modify: `<vara-skills-evals-root>/tests/test_suite_catalog.py`
 
 **Step 1: Expand the suite-catalog test**
 
@@ -142,7 +142,7 @@ Require each new file to contain:
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_suite_catalog.py
+python3 <vara-skills-evals-root>/tests/test_suite_catalog.py
 ```
 
 Expected:
@@ -158,8 +158,8 @@ Use standard Gear/Vara Sails docs and local repos as the source of truth.
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_suite_catalog.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_eval_catalog.py
+python3 <vara-skills-evals-root>/tests/test_suite_catalog.py
+python3 <vara-skills-evals-root>/tests/test_eval_catalog.py
 ```
 
 Expected:
@@ -170,17 +170,17 @@ Expected:
 **Step 5: Commit**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals add evals tests/test_suite_catalog.py tests/test_eval_catalog.py
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals commit -m "test: add first suite-based Vara eval cases"
+git -C <vara-skills-evals-root> add evals tests/test_suite_catalog.py tests/test_eval_catalog.py
+git -C <vara-skills-evals-root> commit -m "test: add first suite-based Vara eval cases"
 ```
 
 ### Task 4: Add Rust and JavaScript client fixtures plus artifact tests
 
 **Files:**
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/fixtures/sails-rust/README.md`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/fixtures/js-client/README.md`
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_artifact_fixtures.py`
-- Modify: `/Users/ukintvs/Documents/projects/vara-skills-evals/runner/run.sh`
+- Create: `<vara-skills-evals-root>/fixtures/sails-rust/README.md`
+- Create: `<vara-skills-evals-root>/fixtures/js-client/README.md`
+- Create: `<vara-skills-evals-root>/tests/test_artifact_fixtures.py`
+- Modify: `<vara-skills-evals-root>/runner/run.sh`
 
 **Step 1: Write the failing fixture test**
 
@@ -191,7 +191,7 @@ Require the fixture directories and their README contracts to exist.
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_artifact_fixtures.py
+python3 <vara-skills-evals-root>/tests/test_artifact_fixtures.py
 ```
 
 Expected:
@@ -211,9 +211,9 @@ Teach `runner/run.sh` to recognize `artifact` grader cases and dispatch fixture-
 Run:
 
 ```bash
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_artifact_fixtures.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_runner_smoke.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_runner_slice.py
+python3 <vara-skills-evals-root>/tests/test_artifact_fixtures.py
+python3 <vara-skills-evals-root>/tests/test_runner_smoke.py
+python3 <vara-skills-evals-root>/tests/test_runner_slice.py
 ```
 
 Expected:
@@ -223,16 +223,16 @@ Expected:
 **Step 6: Commit**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals add fixtures runner/run.sh tests/test_artifact_fixtures.py
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals commit -m "feat: add artifact fixture contracts"
+git -C <vara-skills-evals-root> add fixtures runner/run.sh tests/test_artifact_fixtures.py
+git -C <vara-skills-evals-root> commit -m "feat: add artifact fixture contracts"
 ```
 
 ### Task 5: Run the first full `gpt-5.4` suite and record results
 
 **Files:**
-- Create: `/Users/ukintvs/Documents/projects/vara-skills-evals/results/YYYY-MM-DD-gpt54-suite-report.md`
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/README.md`
-- Modify: `/Users/ukintvs/Documents/projects/gear-agent-skills/tests/test_skill_catalog.py`
+- Create: `<vara-skills-evals-root>/results/YYYY-MM-DD-gpt54-suite-report.md`
+- Modify: `<repo-root>/README.md`
+- Modify: `<repo-root>/tests/test_skill_catalog.py`
 
 **Step 1: Run the milestone-one suite**
 
@@ -258,11 +258,11 @@ Update the product README and catalog expectations so they refer to the mileston
 Run:
 
 ```bash
-make -C /Users/ukintvs/Documents/projects/gear-agent-skills verify
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_repo_layout.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_suite_catalog.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_runner_smoke.py
-python3 /Users/ukintvs/Documents/projects/vara-skills-evals/tests/test_runner_slice.py
+make -C <repo-root> verify
+python3 <vara-skills-evals-root>/tests/test_repo_layout.py
+python3 <vara-skills-evals-root>/tests/test_suite_catalog.py
+python3 <vara-skills-evals-root>/tests/test_runner_smoke.py
+python3 <vara-skills-evals-root>/tests/test_runner_slice.py
 ```
 
 Expected:
@@ -272,15 +272,15 @@ Expected:
 **Step 5: Commit**
 
 ```bash
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals add results README.md tests
-git -C /Users/ukintvs/Documents/projects/vara-skills-evals commit -m "results: add first suite-based gpt-5.4 report"
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills add README.md tests/test_skill_catalog.py
-git -C /Users/ukintvs/Documents/projects/gear-agent-skills commit -m "docs: align pack with suite-based gpt-5.4 evals"
+git -C <vara-skills-evals-root> add results README.md tests
+git -C <vara-skills-evals-root> commit -m "results: add first suite-based gpt-5.4 report"
+git -C <repo-root> add README.md tests/test_skill_catalog.py
+git -C <repo-root> commit -m "docs: align pack with suite-based gpt-5.4 evals"
 ```
 
 ## Assumptions
 
-- `/Users/ukintvs/Documents/projects/vara-skills-evals` remains the measurement repo for the pack.
+- `<vara-skills-evals-root>` remains the measurement repo for the pack.
 - `gpt-5.4` is the only model that must be fully green for this milestone.
 - the current skill-oriented eval files may be migrated or retired during the redesign.
 - milestone one remains standard Gear/Vara Sails only; Vara.eth-specific evals are deferred.

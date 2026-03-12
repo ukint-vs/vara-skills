@@ -36,7 +36,7 @@ Add assertions for:
 - new skill directory:
   - `skills/gear-message-execution/`
 - install-script expectations aligned with the current public catalog plus `gear-message-execution`
-- skill-catalog assertions that local skills reference local handbook files instead of `../gear-skills` or `~/.codex/skills`
+- skill-catalog assertions that local skills reference local handbook files instead of `<gear-skills-root>` or `$CODEX_HOME/skills`
 
 **Step 2: Run tests to verify they fail**
 
