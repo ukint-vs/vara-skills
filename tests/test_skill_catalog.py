@@ -155,6 +155,8 @@ def main() -> int:
     assert "waitlist" in architecture_lower and "rent" in architecture_lower
     assert "cannot be prolonged" in architecture_lower or "maximum duration" in architecture_lower
     assert "reservation" in architecture_lower and "delayed" in architecture_lower
+    assert "constructor" in architecture_lower and "state ownership" in architecture_lower
+    assert "generated clients" in architecture_lower or "generated client" in architecture_lower
     assert "../../references/sails-program-and-service-architecture.md" in architecture
     assert "../../references/gear-messaging-and-replies.md" in architecture
     assert "../../references/gear-gas-reservations-and-waitlist.md" in architecture
@@ -190,6 +192,8 @@ def main() -> int:
     execution_lower = execution.lower()
     assert "reply" in execution_lower and "timeout" in execution_lower
     assert "reservation" in execution_lower and "waitlist" in execution_lower
+    assert "exec::gas_available" in execution
+    assert "route prefix" in execution_lower or "generated sails clients" in execution_lower
     assert "../../references/gear-execution-model.md" in execution
     assert "../../references/gear-messaging-and-replies.md" in execution
     assert "../../references/gear-gas-reservations-and-waitlist.md" in execution
@@ -204,6 +208,9 @@ def main() -> int:
     assert "for_reply" in gear_messaging
     assert "reply hook" in gear_messaging_lower
     assert "delayed" in gear_messaging_lower and "commit" in gear_messaging_lower
+    assert "exec::gas_available" in gear_messaging
+    assert "route prefix" in gear_messaging_lower
+    assert "raw struct" in gear_messaging_lower
 
     gas_waitlist = read("references/gear-gas-reservations-and-waitlist.md")
     gas_waitlist_lower = gas_waitlist.lower()
@@ -214,6 +221,15 @@ def main() -> int:
     sails_arch_ref_lower = sails_arch_ref.lower()
     assert "#[program]" in sails_arch_ref and "#[service]" in sails_arch_ref
     assert "await" in sails_arch_ref_lower and "revalidate" in sails_arch_ref_lower
+    assert "returning `self`" in sails_arch_ref_lower or "returning self" in sails_arch_ref_lower
+    assert "program-owned state" in sails_arch_ref_lower
+    assert "static service state" in sails_arch_ref_lower
+
+    sails_cheatsheet = read("references/sails-cheatsheet.md")
+    sails_cheatsheet_lower = sails_cheatsheet.lower()
+    assert "constructors" in sails_cheatsheet_lower and "return `self`" in sails_cheatsheet_lower
+    assert "generated clients" in sails_cheatsheet_lower
+    assert "route-prefixed" in sails_cheatsheet_lower or "route prefix" in sails_cheatsheet_lower
 
     idl_pipeline = read("references/sails-idl-client-pipeline.md")
     idl_pipeline_lower = idl_pipeline.lower()

@@ -35,6 +35,8 @@ Provide a focused local path for reasoning about message flow and execution beha
 - Treat reply, timeout, and late hook execution as distinct states.
 - Keep staged payload flows paired with their commit step.
 - Treat reservation duration and waitlist expiry as architecture constraints.
+- Use `exec::gas_available()` when checking available gas during the current execution.
 - Prefer generated Sails clients unless debugging the route or codec layer.
+- If a Sails route is involved, expect route-prefixed encoding rather than a raw struct payload.
 - Keep the guidance on the standard Gear/Vara Sails path.
 - Prefer local repo references over external skill dependencies.

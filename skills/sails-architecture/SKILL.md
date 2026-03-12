@@ -35,18 +35,21 @@ Write the result to `docs/plans/YYYY-MM-DD-<topic>-architecture.md`.
 
 - Choose explicit service boundaries.
 - Explain state ownership.
+- Name the program constructor shape and the chosen storage pattern instead of implying them.
 - Consider routing and events.
 - If work is delayed, is it block-based and allowed to self-message later?
 - If future automation matters, is reservation lifetime and gas budgeting explicit?
 - If messages may sit in the Waitlist, does the design account for rent, expiry, and maximum duration?
 - Are `#[program]` and `#[service]` boundaries explicit?
 - Are routes, replies, and events stable enough for generated clients?
+- If a delayed or self-call hits a Sails route, does the design keep generated clients or equivalent route-prefixed encoding in the contract?
 - Does the design account for async Gear message flow and failure paths?
 
 ## Guardrails
 
 - If the spec is missing, stop and create it first.
 - Prefer Sails service composition over ad hoc raw Gear layering.
+- Treat generated clients as the default route contract for constructor and service calls.
 - Do not assume delayed automation works without future gas availability.
 - Do not treat Waitlist storage as free or indefinitely prolongable.
 - Keep implementation detail out of the architecture note unless it changes the public contract.

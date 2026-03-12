@@ -29,5 +29,8 @@ If the target crate explicitly builds an `ethexe` path, stop and hand back to a 
 
 - Do not redesign the feature while coding.
 - Prefer Sails-level interfaces over raw payload work unless the task says otherwise.
+- Keep constructor shape and state ownership consistent with the approved architecture instead of inventing a new storage pattern mid-implementation.
+- Use generated clients or equivalent route-prefixed encoding for normal Sails calls; do not substitute bare raw structs for constructor or service payloads.
+- Use `exec::gas_available()` for remaining-gas checks in execution paths.
 - Treat value flow, replies, and async ordering as first-class behavior.
 - Stop and hand back to planning if implementation uncovers a real architecture gap.

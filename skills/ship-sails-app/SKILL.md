@@ -21,9 +21,12 @@ Use this as the first stop for the provisional Sails-builder pack. Route the bui
 ## Standard Defaults
 
 - Start with Sails for standard Vara work, not raw low-level `gstd`. In standard Sails repos, `cargo build` runs `build.rs`: program or wasm crates usually call `sails_rs::build_wasm()`, while the repo may also emit `.idl` and typed client outputs from that same build flow.
+- In `#[program]`, public constructors return `Self`; name that constructor shape and the chosen state ownership pattern explicitly in planning artifacts.
 - Standard Vara account addresses are Substrate `SS58` addresses, not Ethereum `0x` addresses. Local tooling commonly uses Vara prefix `137`.
 - Treat the program `.idl` as the source of truth. The normal JS or TS path is `sails-js` or `sails-js-cli` plus `GearApi`, generating outputs such as `lib.ts` and typed program or service classes. Use `parseIdl` only for an explicitly dynamic runtime path.
+- For normal Sails constructor or service calls, generated clients or equivalent route-prefixed encoding are the default path; do not model the payload as a bare raw struct.
 - Deferred work uses delayed messages measured in blocks. A program can send a delayed message to itself or another actor. If the flow needs gas to survive across blocks, use reserved gas or `ReservationId`; reservation duration is bounded and is not a value top-up.
+- If the flow checks remaining execution budget, use `exec::gas_available()`.
 - Gasless flows use vouchers so a sponsor covers gas and fees for scoped interactions; the chain is not simply free. Signless flows add a temporary delegated account, sub-account, or session for the app. Prefer existing frontend tooling such as EZ-transactions or signless or gasless hooks.
 - For local validation, use dev accounts or user-provided `SS58` addresses, keep seed phrases and private keys out of commit-ready examples, and do not invent program IDs, voucher IDs, or account addresses.
 - Check the repo's `build.rs` before inventing manual generation commands. Common patterns in `../sails` include `sails_rs::build_client::<Program>()`, `ClientBuilder::<Program>::from_env().build_idl().generate()`, or explicit `sails_idl_gen::generate_idl_to_file::<Program>(...)`.

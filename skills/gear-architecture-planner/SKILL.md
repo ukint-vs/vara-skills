@@ -20,7 +20,7 @@ Write the result to `docs/plans/YYYY-MM-DD-<topic>-architecture.md`.
 ## Workflow
 
 1. Confirm the spec artifact exists and is approved.
-2. Choose program and service boundaries.
+2. Choose program constructors and service boundaries.
 3. Map state ownership, routing, messages, replies, and events.
 4. Record generated-IDL or generated-client implications.
 5. Capture off-chain components, failure paths, and explicit non-goals.
@@ -28,6 +28,8 @@ Write the result to `docs/plans/YYYY-MM-DD-<topic>-architecture.md`.
 ## Guardrails
 
 - Keep `#[program]` thin and push business logic into services.
+- Make the constructor shape and storage pattern explicit instead of leaving them to implementation guesswork.
+- Treat generated clients or equivalent route-prefixed encoding as the default Sails message contract.
 - Treat actor boundaries and async flow as design constraints.
 - Call out remote-call failure policy instead of leaving it implicit.
 - Do not collapse architecture into a file-by-file coding checklist.

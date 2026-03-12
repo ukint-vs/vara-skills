@@ -2,14 +2,15 @@
 
 ## Baseline Structure
 
-- `#[program]` should stay thin: constructors, wiring, and service exposure only.
+- `#[program]` should stay thin: constructors returning `Self`, wiring, and service exposure only.
 - `#[service]` should own business logic, stateful commands, read-only queries, and events.
 - One application has one `#[program]`, but it may expose multiple services by business boundary.
 
 ## State Ownership Patterns
 
+- Name the state ownership pattern explicitly in the architecture note instead of leaving storage implied.
 - Program-owned state is the preferred default because ownership is explicit and test setup is simpler.
-- Hidden static service state is acceptable only when deterministic seeding and test isolation are controlled.
+- Hidden static service state is acceptable only when deterministic seeding and test isolation are controlled; it is an allowed alternative, not a required Sails default.
 - Use shallow `extends` composition when it improves reuse; do not build a maze of inherited service surfaces.
 
 ## Routes And Public Contract
@@ -29,6 +30,7 @@
 ## Recommended Defaults
 
 - Use program-owned state plus service wrappers.
+- Keep constructor shape, state ownership, and service exposure aligned so the program contract is obvious from the `#[program]` surface.
 - Keep access-control checks centralized in service-local guard helpers.
 - Emit events close to the successful state transition they describe.
 - Prefer fail-fast command semantics over soft-error partial commits.
