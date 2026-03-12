@@ -24,7 +24,6 @@ def sanitized_files() -> list[Path]:
         ROOT / "openclaw-skill" / "README.md",
         ROOT / "openclaw-skill" / "SKILL.md",
         ROOT / "tests" / "fixtures" / "gtest-workspace-error.log",
-        *sorted((ROOT / "docs" / "plans").glob("*.md")),
     ]
 
 
@@ -33,13 +32,7 @@ def main() -> int:
     require(ROOT / "README.md")
     require(ROOT / "SKILL.md")
     require(ROOT / "Makefile")
-    require(ROOT / "docs" / "plans" / "2026-03-11-core-skills-design.md")
-    require(ROOT / "docs" / "plans" / "2026-03-11-core-skills.md")
-    require(ROOT / "docs" / "plans" / "2026-03-11-redirect-validation.md")
-    require(ROOT / "docs" / "plans" / "2026-03-11-vara-sails-builder-pack-design.md")
-    require(ROOT / "docs" / "plans" / "2026-03-11-vara-sails-builder-pack.md")
-    require(ROOT / "docs" / "plans" / "2026-03-11-self-contained-sails-gear-pack-design.md")
-    require(ROOT / "docs" / "plans" / "2026-03-11-self-contained-sails-gear-pack.md")
+    require(ROOT / ".gitignore")
     require(ROOT / "assets" / "spec-template.md")
     require(ROOT / "assets" / "architecture-template.md")
     require(ROOT / "assets" / "task-plan-template.md")

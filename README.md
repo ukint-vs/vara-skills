@@ -61,7 +61,6 @@ Use `openclaw-skill/SKILL.md` as the wrapper entrypoint for the same pack.
 - `references/` contains the self-contained handbook.
 - `assets/` contains canonical output shapes for spec, architecture, task-plan, and gtest artifacts.
 - `scripts/` contains install, validation, gtest execution, and parser helpers.
-- `docs/plans/` captures approved design and implementation artifacts for the pack.
 
 ## Milestone-One Evaluation
 
