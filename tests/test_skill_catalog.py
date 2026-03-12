@@ -246,6 +246,11 @@ def main() -> int:
     assert "access-control" in production_patterns_lower
     assert "msg-tracker" in production_patterns_lower
     assert "awesome-sails-utils" in production_patterns_lower
+    assert "prefix `137`" in production_patterns or "prefix 137" in production_patterns_lower
+    assert "current message's gas" in production_patterns_lower or "current message gas" in production_patterns_lower
+    assert "whole async flow" in production_patterns_lower or "one `send`" in production_patterns
+    assert "holding area" in production_patterns_lower and ("rent" in production_patterns_lower or "holding budget" in production_patterns_lower)
+    assert "voucher" in production_patterns_lower and "signless" in production_patterns_lower
     assert "checkedmath" in production_patterns_lower
     assert "lebytes" in production_patterns_lower
     assert "nonzero" in production_patterns_lower

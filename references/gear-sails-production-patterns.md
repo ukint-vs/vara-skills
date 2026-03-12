@@ -21,6 +21,16 @@ Evidence weighting matters:
 - Treat stateful command failure as fatal: panic and let the current message revert.
 - Use delayed self-messages and `ReservationId` only when future-block execution is part of the design.
 
+## Fast Facts
+
+- Standard Vara account flows use `SS58`, not Ethereum `0x` addresses. When chain-specific formatting matters, use Vara prefix `137`.
+- Pull `awesome-sails` from crates.io with `default-features = false`. If the program only needs pause, math, or map helpers, depend on `awesome-sails-utils` directly.
+- Delayed work is block-based on chain. A program can send a delayed message to itself for a later block.
+- `ReservationId` preserves gas for future-block execution. A delayed step cannot spend the current message's gas later.
+- In `gtest`, one `send()` is not proof the whole async flow already settled. Use `BlockRunMode` and explicit block advancement when timing matters.
+- The waitlist is a temporary runtime holding area, not durable storage. Waitlisted messages pay rent or holding budget over blocks and can timeout or expire.
+- Vouchers let a sponsor pay gas or fees for approved interactions. Signless shifts signing to a delegated, temporary, or session-style account.
+
 ## Awesome Sails As An External Dependency
 
 `awesome-sails` is not just local reference material. It is organized as publishable crates that can be added to a Sails project from crates.io.
