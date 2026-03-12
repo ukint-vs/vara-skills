@@ -14,6 +14,7 @@ EXPECTED_SKILLS = (
     "gear-message-execution",
     "gtest-tdd-loop",
     "idea-to-spec",
+    "sails-dev-env",
     "sails-architecture",
     "sails-feature-workflow",
     "sails-gtest",

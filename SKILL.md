@@ -19,6 +19,7 @@ The repo is intended to be self-contained: use local `references/` handbook file
 
 ## Route By Builder Intent
 
+- Prepare or repair the local Rust or Gear toolchain first: `skills/sails-dev-env/SKILL.md`
 - Start a new Sails workspace: `skills/sails-new-app/SKILL.md`
 - Add or change a feature in an existing Sails repo: `skills/sails-feature-workflow/SKILL.md`
 - Rework service or program boundaries: `skills/sails-architecture/SKILL.md`

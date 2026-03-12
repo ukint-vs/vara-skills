@@ -11,12 +11,13 @@ Move a greenfield request from scope to an approved Sails workspace path without
 
 ## Sequence
 
-1. Create the Sails workspace first.
-2. Write the feature or app goal to `docs/plans/YYYY-MM-DD-<topic>-spec.md` using `../../assets/spec-template.md`.
-3. Route architecture decisions through `../sails-architecture/SKILL.md`.
-4. Scaffold with the standard Sails workspace shape: program crate, `build.rs`, Wasm output, and generated-client path kept intact from the start.
-5. Keep the standard `build.rs` pipeline intact. In standard Sails workspaces, `cargo build` triggers `build.rs`, which produces `.opt.wasm` and may also emit `.idl` plus client wiring depending on whether generation lives in the program or client crate; then send IDL and client work to `../sails-idl-client/SKILL.md`.
-6. Validate before moving to later phases by finishing with `../sails-gtest/SKILL.md`, then `../sails-local-smoke/SKILL.md`.
+1. If the machine does not already have `rustup`, the required Wasm targets, `cargo-sails`, and a local `gear` binary, start with `../sails-dev-env/SKILL.md`.
+2. Create the Sails workspace first.
+3. Write the feature or app goal to `docs/plans/YYYY-MM-DD-<topic>-spec.md` using `../../assets/spec-template.md`.
+4. Route architecture decisions through `../sails-architecture/SKILL.md`.
+5. Scaffold with the standard Sails workspace shape: program crate, `build.rs`, Wasm output, and generated-client path kept intact from the start.
+6. Keep the standard `build.rs` pipeline intact. In standard Sails workspaces, `cargo build` triggers `build.rs`, which produces `.opt.wasm` and may also emit `.idl` plus client wiring depending on whether generation lives in the program or client crate; then send IDL and client work to `../sails-idl-client/SKILL.md`.
+7. Validate before moving to later phases by finishing with `../sails-gtest/SKILL.md`, then `../sails-local-smoke/SKILL.md`.
 
 ## Shared Inputs
 

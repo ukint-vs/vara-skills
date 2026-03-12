@@ -14,6 +14,7 @@ Each skill is a markdown file.
 
 The pack is being narrowed toward standard Gear/Vara Sails app builders:
 
+- preparing the local Rust and Gear toolchain
 - starting a new Sails app
 - building features in an existing Sails app
 - reasoning about Gear message flow and execution behavior
@@ -43,6 +44,7 @@ Use `openclaw-skill/SKILL.md` as the wrapper entrypoint for the same pack.
 
 ## Current Skill Pack
 
+- `sails-dev-env`
 - `ship-sails-app`
 - `sails-new-app`
 - `sails-feature-workflow`

@@ -30,6 +30,7 @@ Use this as the first stop for the provisional Sails-builder pack. Route the bui
 
 ## Route By Situation
 
+- Missing local Rust toolchains, Wasm targets, `cargo-sails`, or the `gear` binary: `../sails-dev-env/SKILL.md`
 - No repo or greenfield workspace request: `../sails-new-app/SKILL.md`
 - Existing Sails repo with feature or behavior change: `../sails-feature-workflow/SKILL.md`
 - Confusion about `#[program]`, `#[service]`, state, or service boundaries: `../sails-architecture/SKILL.md`

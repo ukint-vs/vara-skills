@@ -14,6 +14,12 @@ STARTER_SKILLS = {
         "references",
         "scripts",
     ],
+    "sails-dev-env": [
+        "SKILL.md",
+        "assets",
+        "references",
+        "scripts",
+    ],
     "ship-sails-app": [
         "SKILL.md",
         "assets",
@@ -90,7 +96,23 @@ def main() -> int:
 
     router = read("SKILL.md")
     assert "ship-sails-app" in router
+    assert "sails-dev-env" in router
     assert "Codex" in router and "Claude" in router and "OpenClaw" in router
+
+    dev_env = read("skills/sails-dev-env/SKILL.md")
+    dev_env_lower = dev_env.lower()
+    assert "rustup" in dev_env_lower
+    assert "cargo install sails-cli" in dev_env_lower
+    assert "cargo-sails" in dev_env_lower
+    assert "wasm32v1-none" in dev_env
+    assert "wasm32-unknown-unknown" in dev_env
+    assert "macos" in dev_env_lower or "darwin" in dev_env_lower
+    assert "linux" in dev_env_lower
+    assert "windows" in dev_env_lower
+    assert "latest" in dev_env_lower and "gear" in dev_env_lower
+    assert "gear --version" in dev_env_lower
+    assert "cargo sails --version" in dev_env_lower
+    assert "../gear" not in dev_env
 
     ship = read("skills/ship-sails-app/SKILL.md")
     ship_lower = ship.lower()
@@ -105,6 +127,7 @@ def main() -> int:
     assert "../../references/sails-idl-client-pipeline.md" in ship
     assert "../../references/sails-gtest-and-local-validation.md" in ship
     assert "gear-message-execution" in ship
+    assert "sails-dev-env" in ship
     assert "sails-program-architecture-patterns" not in ship
     assert "gear-messaging-model" not in ship
 
@@ -114,6 +137,7 @@ def main() -> int:
     assert "build.rs" in new_app and "cargo build" in new_app.lower()
     assert "../../references/sails-idl-client-pipeline.md" in new_app
     assert "../../references/sails-program-and-service-architecture.md" in new_app
+    assert "sails-dev-env" in new_app
     assert "sails-new-program" not in new_app
     assert "sails-idl-and-client-pipeline" not in new_app
 
@@ -229,6 +253,7 @@ def main() -> int:
     assert "gpt-5.4" in readme, "README.md should name the first evaluation target"
     assert "ship-sails-app" in readme and "sails-local-smoke" in readme
     assert "sails-new-app" in readme and "sails-feature-workflow" in readme
+    assert "sails-dev-env" in readme
     assert "provisional" in readme.lower(), "README.md should keep the catalog provisional"
     assert "12" in readme and "knowledge" in readme and "codegen" in readme
     assert "2026-03-11-gpt54-suite-report.md" in readme

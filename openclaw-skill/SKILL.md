@@ -21,6 +21,7 @@ Load the repo router at `../SKILL.md`, then begin with `ship-sails-app`.
 
 ## Route By Task
 
+- Local Rust or Gear setup: `../skills/sails-dev-env/SKILL.md`
 - New app: `../skills/sails-new-app/SKILL.md`
 - Existing feature work: `../skills/sails-feature-workflow/SKILL.md`
 - Message flow or reply behavior: `../skills/gear-message-execution/SKILL.md`
