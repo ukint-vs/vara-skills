@@ -11,8 +11,11 @@
 ### Template Workspace Pattern
 
 - A program or root crate builds the Wasm artifact.
+- In the current templates, app or wasm crates use `sails-rs = { version = "0.10.2", features = ["wasm-builder"] }` in `[build-dependencies]`.
 - `cargo build` commonly produces `.opt.wasm` and may also refresh `.idl` output.
 - Client generation may happen in the same crate or in a dedicated client crate.
+- Dedicated client crates usually depend on `sails-client-gen` and `sails-idl-gen` in `[build-dependencies]` rather than `sails-rs`.
+- `features = ["build"]` still exists in `sails-rs 0.10.2`, but treat it as compatibility or legacy shorthand unless the repo already uses it intentionally.
 
 ### Shorthand Builder
 
@@ -44,6 +47,7 @@ Use this only when the repo layout or artifact wiring is genuinely non-standard.
 
 1. Check `build.rs` before adding an ad hoc generation command.
 2. Confirm where the repo expects `.idl` output to land.
-3. Regenerate the Rust or TS client from the current `.idl`.
-4. Verify tests and smoke flows use the generated client instead of hand-built payload encoders.
-5. Keep generated artifacts deterministic and avoid unstable output locations.
+3. Confirm whether the crate is a program or a dedicated client crate before changing Cargo features.
+4. Regenerate the Rust or TS client from the current `.idl`.
+5. Verify tests and smoke flows use the generated client instead of hand-built payload encoders.
+6. Keep generated artifacts deterministic and avoid unstable output locations.

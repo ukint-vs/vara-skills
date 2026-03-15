@@ -6,6 +6,15 @@
 - A typical harness creates one `System`, funds the sender, submits the Wasm, builds `GtestEnv`, and deploys the program through the generated constructor path.
 - Use generated client methods for normal command and query assertions.
 
+## Raw `gtest` Escape Hatch
+
+- When you must debug below the generated client layer, remember the raw flow:
+  - `Program::send_bytes*` returns a `MessageId`
+  - `System::run_next_block()` returns a `BlockRunResult`
+  - `BlockRunResult.log()` contains the reply log entries for that block
+  - `BlockRunResult.failed` is the fast failure set for sent messages
+- Use `run_to_block` when delayed sends or multi-block progress matter more than a single next-block reply.
+
 ## `BlockRunMode` Semantics
 
 - `Auto`: run enough blocks to extract tracked replies automatically.
@@ -28,6 +37,7 @@ Pick `Next` or `Manual` for timing-sensitive flows, delayed work, reply absence,
 - `UserspacePanic` can appear after an async path that already waited or sent internally.
 - A timeout result does not prove a later reply hook never runs.
 - Event assertions should happen after the producing block and only expect events on successful execution.
+- If you drop to raw `gtest`, inspect the matching `MessageId` in the `BlockRunResult` instead of expecting a direct typed return value.
 
 ## Typed Local Smoke
 

@@ -116,8 +116,12 @@ def main() -> int:
     assert "../../references/sails-program-and-service-architecture.md" in ship
     assert "../../references/sails-idl-client-pipeline.md" in ship
     assert "../../references/sails-gtest-and-local-validation.md" in ship
+    assert "../../references/sails-rs-imports.md" in ship
+    assert "../../references/delayed-message-pattern.md" in ship
     assert "gear-message-execution" in ship
     assert "sails-dev-env" in ship
+    assert "0.10.2" in ship
+    assert "wasm-builder" in ship
 
     new_app = read("skills/sails-new-app/SKILL.md")
     assert "Sails" in new_app
@@ -153,6 +157,9 @@ def main() -> int:
     gtest_loop = read("skills/sails-gtest/SKILL.md")
     assert "../../references/sails-gtest-and-local-validation.md" in gtest_loop
     assert "../../references/gear-gas-reservations-and-waitlist.md" in gtest_loop
+    assert "../../references/gtest-patterns.md" in gtest_loop
+    assert "MessageId" in gtest_loop
+    assert "run_next_block" in gtest_loop
 
     smoke = read("skills/sails-local-smoke/SKILL.md")
     smoke_lower = smoke.lower()
@@ -209,12 +216,18 @@ def main() -> int:
     assert "constructors" in sails_cheatsheet_lower and "return `self`" in sails_cheatsheet_lower
     assert "generated clients" in sails_cheatsheet_lower
     assert "route-prefixed" in sails_cheatsheet_lower or "route prefix" in sails_cheatsheet_lower
+    assert "#[export]" in sails_cheatsheet
+    assert "emit_event" in sails_cheatsheet
+    assert "0.10.2" in sails_cheatsheet
+    assert "../sails" not in sails_cheatsheet
 
     idl_pipeline = read("references/sails-idl-client-pipeline.md")
     idl_pipeline_lower = idl_pipeline.lower()
     assert "build.rs" in idl_pipeline
     assert "build_client" in idl_pipeline_lower or "clientbuilder" in idl_pipeline_lower
     assert ".idl" in idl_pipeline
+    assert "wasm-builder" in idl_pipeline
+    assert 'features = ["build"]' in idl_pipeline
 
     validation_ref = read("references/sails-gtest-and-local-validation.md")
     validation_ref_lower = validation_ref.lower()
@@ -222,6 +235,43 @@ def main() -> int:
     assert "blockrunmode" in validation_ref_lower
     assert "program id" in validation_ref_lower
     assert "local node" in validation_ref_lower
+    assert "messageid" in validation_ref_lower
+    assert "blockrunresult" in validation_ref_lower
+    assert "run_to_block" in validation_ref_lower
+
+    sails_imports = read("references/sails-rs-imports.md")
+    assert "0.10.2" in sails_imports
+    assert "wasm-builder" in sails_imports
+    assert "#[codec(crate = sails_rs::scale_codec)]" in sails_imports
+    assert "#[scale_info(crate = sails_rs::scale_info)]" in sails_imports
+    assert "#[export]" in sails_imports
+    assert "emit_event" in sails_imports
+    assert "../sails" not in sails_imports
+    assert "../awesome-sails" not in sails_imports
+    assert "../dapps" not in sails_imports
+
+    gtest_patterns = read("references/gtest-patterns.md")
+    gtest_patterns_lower = gtest_patterns.lower()
+    assert "messageid" in gtest_patterns_lower
+    assert "blockrunresult" in gtest_patterns_lower
+    assert "r.log()" in gtest_patterns
+    assert "run_to_block" in gtest_patterns_lower
+    assert "failed.contains" in gtest_patterns
+    assert "Program<'_" in gtest_patterns
+
+    delayed_message = read("references/delayed-message-pattern.md")
+    delayed_message_lower = delayed_message.lower()
+    assert "send_bytes_with_gas_delayed" in delayed_message
+    assert "exec::program_id()" in delayed_message
+    assert ".concat()" in delayed_message
+    assert "msg::source() == exec::program_id()" in delayed_message
+    assert "idempot" in delayed_message_lower
+    assert "../sails" not in delayed_message
+    assert "../awesome-sails" not in delayed_message
+    assert "../dapps" not in delayed_message
+
+    ship_no_sibling_paths = read("skills/ship-sails-app/SKILL.md")
+    assert "../sails`" not in ship_no_sibling_paths
 
     planner = read("skills/gear-architecture-planner/SKILL.md")
     assert "../../references/sails-program-and-service-architecture.md" in planner
@@ -246,8 +296,12 @@ def main() -> int:
     assert "../../references/gear-sails-production-patterns.md" in implementer
     assert "../../references/gear-messaging-and-replies.md" in implementer
     assert "../../references/gear-gas-reservations-and-waitlist.md" in implementer
+    assert "../../references/sails-rs-imports.md" in implementer
+    assert "../../references/delayed-message-pattern.md" in implementer
     assert "state ownership" in implementer_lower
     assert "generated clients" in implementer_lower or "generated client" in implementer_lower
+    assert "#[export]" in implementer
+    assert "emit_event" in implementer
 
     gtest_tdd = read("skills/gtest-tdd-loop/SKILL.md")
     assert "../../references/sails-gtest-and-local-validation.md" in gtest_tdd

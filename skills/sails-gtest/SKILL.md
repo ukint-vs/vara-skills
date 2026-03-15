@@ -13,6 +13,7 @@ Run the Sails-first test loop with generated clients and explicit `gtest` eviden
 
 - `../../assets/gtest-report-template.md`
 - `../../references/gtest-cheatsheet.md`
+- `../../references/gtest-patterns.md`
 - `../../references/sails-cheatsheet.md`
 - `../../references/sails-gtest-and-local-validation.md`
 - `../../references/gear-gas-reservations-and-waitlist.md`
@@ -23,10 +24,12 @@ Write the result to `docs/plans/YYYY-MM-DD-<topic>-gtest.md`.
 
 1. Confirm the implementation target is ready for verification.
 2. Use generated clients or `GtestEnv` instead of hand-built payloads where the workspace supports them.
-3. Pick the right `BlockRunMode` and advance blocks explicitly when replies or deferred effects depend on progression.
-4. Assert behavior, replies, events, or accounting in the test result, not just compilation.
-5. Record failure mode, fix, and passing command output in the gtest note.
-6. Route to `../sails-local-smoke/SKILL.md` only after the suite is green.
+3. If the test must go below generated clients, remember the raw mental model: `send_bytes*` returns a `MessageId`, `run_next_block` returns the `BlockRunResult`, and the reply evidence lives in the block result.
+4. Pick the right `BlockRunMode` and advance blocks explicitly when replies or deferred effects depend on progression.
+5. Use `run_to_block` when delayed work or timeout behavior spans multiple blocks.
+6. Assert behavior, replies, events, or accounting in the test result, not just compilation.
+7. Record failure mode, fix, and passing command output in the gtest note.
+8. Route to `../sails-local-smoke/SKILL.md` only after the suite is green.
 
 ## Guardrails
 
